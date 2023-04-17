@@ -1,3 +1,6 @@
+// Load env variables
+require("dotenv").config();
+
 // Import dependencies
 const express = require("express");
 
@@ -9,4 +12,4 @@ app.get("/", (req, res) => {
   res.json({ hello: "World" });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
