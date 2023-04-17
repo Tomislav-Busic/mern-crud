@@ -6,7 +6,7 @@ const app = express();
 
 // Routing
 app.get("/", (req, res) => {
-  res.json("Hello world");
+  res.json({ hello: "World" });
 });
 
 app.listen(3000);
