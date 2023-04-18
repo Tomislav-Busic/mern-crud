@@ -23,6 +23,9 @@ app.get("/", (req, res) => {
 
 app.post("/notes", (req, res) => {
   // Get the sent in data off request body
+  const title = req.body.title;
+  const body = req.body.body;
+  
   // Create a note with it
   // respond with the new note
 });
