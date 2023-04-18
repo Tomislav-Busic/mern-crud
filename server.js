@@ -9,6 +9,8 @@ const connectDB = require("./config/db");
 
 // Create an express app
 const app = express();
+
+// Connect to database
 connectDB();
 
 // Routing
