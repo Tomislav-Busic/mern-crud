@@ -10,6 +10,9 @@ const connectDB = require("./config/db");
 // Create an express app
 const app = express();
 
+// Configure express app
+app.use(express.json())
+
 // Connect to database
 connectDB();
 
