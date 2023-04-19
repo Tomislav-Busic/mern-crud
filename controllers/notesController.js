@@ -29,3 +29,24 @@ const createNewNote = async (req, res) => {
   // respond with the new note
   res.json({ note: note });
 };
+
+const updateNote = async (req, res) => {
+  // Get the id off the url
+  const noteId = req.params.id;
+
+  // Get the data off the req body
+  const title = req.body.title;
+  const body = req.body.body;
+
+  // Find and update the record
+  await Note.findByIdAndUpdate(noteId, {
+    title: title,
+    body: body,
+  });
+
+  // Find updated note
+  const updatedNote = await Note.findById(noteId);
+
+  // Respond with it
+  res.json({ note: updatedNote });
+};

@@ -25,26 +25,7 @@ app.get("/notes/:id");
 
 app.post("/notes");
 
-app.put("/notes/:id", async (req, res) => {
-  // Get the id off the url
-  const noteId = req.params.id;
-
-  // Get the data off the req body
-  const title = req.body.title;
-  const body = req.body.body;
-
-  // Find and update the record
-   await Note.findByIdAndUpdate(noteId, {
-     title: title,
-     body: body,
-   });
-
-   // Find updated note
-   const updatedNote = await Note.findById(noteId);
-
-   // Respond with it
-   res.json({ note: updatedNote });
-});
+app.put("/notes/:id");
 
 app.delete("/notes/:id", async (req, res) => {
   // Get the id off the url
