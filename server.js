@@ -28,12 +28,13 @@ app.post("/notes", async (req, res) => {
   const body = req.body.body;
 
   // Create a note with it
-  await Note.create({
+  const note = await Note.create({
     title: title,
     body: body,
   });
 
   // respond with the new note
+  res.json({ note: note });
 });
 
 
