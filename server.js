@@ -75,5 +75,16 @@ app.put("/notes/:id", async (req, res) => {
    res.json({ note: updatedNote });
 });
 
+app.delete("/notes/:id", async (req, res) => {
+  // Get the id off the url
+  const noteId = req.params.id;
+
+  // Delete the record
+  await Note.findByIdAndDelete(noteId);
+
+  // Respond with id from the note
+  res.json({ note: `Deleted note id ${noteId}` });
+});
+
 
 app.listen(process.env.PORT);
