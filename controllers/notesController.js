@@ -63,3 +63,11 @@ const deleteNote = async (req, res) => {
   // Respond with id from the note
   res.json({ note: `Deleted note id ${noteId}` });
 };
+
+module.exports = {
+  getAllNotes,
+  createNewNote,
+  updateNote,
+  deleteNote,
+  getNoteById,
+};
