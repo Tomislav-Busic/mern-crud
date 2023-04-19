@@ -50,3 +50,14 @@ const updateNote = async (req, res) => {
   // Respond with it
   res.json({ note: updatedNote });
 };
+
+const deleteNote = async (req, res) => {
+  // Get the id off the url
+  const noteId = req.params.id;
+
+  // Delete the record
+  await Note.findByIdAndDelete(noteId);
+
+  // Respond with id from the note
+  res.json({ note: `Deleted note id ${noteId}` });
+};
