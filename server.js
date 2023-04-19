@@ -30,6 +30,15 @@ app.get("/notes", async (req, res) => {
   res.json({ notes: notes });
 });
 
+app.get("/notes/:id", async (req, res) => {
+  // Get id off the url
+  const noteId = req.params.id;
+  // Find the note using that id
+  const note = await Note.findById(noteId);
+  // Respond with the note
+  res.json({ note: note });
+});
+
 app.post("/notes", async (req, res) => {
   // Get the sent in data off request body
   const title = req.body.title;
