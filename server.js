@@ -18,9 +18,6 @@ app.use(express.json());
 connectDB();
 
 // Routing
-app.get("/", (req, res) => {
-  res.json({ hello: "World" });
-});
 
 app.get("/notes");
 
