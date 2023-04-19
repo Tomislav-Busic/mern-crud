@@ -6,6 +6,13 @@ if (process.env.NODE_ENV != "production") {
 // Import dependencies
 const express = require("express");
 const connectDB = require("./config/db");
+const {
+  getAllNotes,
+  getNoteById,
+  createNewNote,
+  updateNote,
+  deleteNote,
+} = require("./controllers/notesController");
 
 // Create an express app
 const app = express();
@@ -18,15 +25,15 @@ connectDB();
 
 // Routing
 
-app.get("/notes");
+app.get("/notes", getAllNotes);
 
-app.get("/notes/:id");
+app.get("/notes/:id", getNoteById);
 
-app.post("/notes");
+app.post("/notes", createNewNote);
 
-app.put("/notes/:id");
+app.put("/notes/:id", updateNote);
 
-app.delete("/notes/:id");
+app.delete("/notes/:id", deleteNote);
 
 
 app.listen(process.env.PORT);
