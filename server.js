@@ -23,20 +23,7 @@ app.get("/notes");
 
 app.get("/notes/:id");
 
-app.post("/notes", async (req, res) => {
-  // Get the sent in data off request body
-  const title = req.body.title;
-  const body = req.body.body;
-
-  // Create a note with it
-  const note = await Note.create({
-    title: title,
-    body: body,
-  });
-
-  // respond with the new note
-  res.json({ note: note });
-});
+app.post("/notes");
 
 app.put("/notes/:id", async (req, res) => {
   // Get the id off the url

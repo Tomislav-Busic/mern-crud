@@ -14,3 +14,18 @@ const getNoteById = async (req, res) => {
   // Respond with the note
   res.json({ note: note });
 };
+
+const createNewNote = async (req, res) => {
+  // Get the sent in data off request body
+  const title = req.body.title;
+  const body = req.body.body;
+
+  // Create a note with it
+  const note = await Note.create({
+    title: title,
+    body: body,
+  });
+
+  // respond with the new note
+  res.json({ note: note });
+};
