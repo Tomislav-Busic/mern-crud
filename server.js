@@ -54,5 +54,19 @@ app.post("/notes", async (req, res) => {
   res.json({ note: note });
 });
 
+app.put("/notes/:id", async (req, res) => {
+  const noteId = req.params.id;
+
+  const title = req.body.title;
+  const body = req.body.body;
+
+  const updatedNote = await Note.findByIdAndUpdate(noteId, {
+    title: title,
+    body: body,
+  });
+
+  res.json({ note: updatedNote });
+});
+
 
 app.listen(process.env.PORT);
