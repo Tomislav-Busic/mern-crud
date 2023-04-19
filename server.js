@@ -22,6 +22,14 @@ app.get("/", (req, res) => {
   res.json({ hello: "World" });
 });
 
+app.get("/notes", async (req, res) => {
+  // Find the notes
+  const notes = await Note.find();
+
+  // Respond with them
+  res.json({ notes: notes });
+});
+
 app.post("/notes", async (req, res) => {
   // Get the sent in data off request body
   const title = req.body.title;
