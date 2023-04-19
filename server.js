@@ -6,7 +6,6 @@ if (process.env.NODE_ENV != "production") {
 // Import dependencies
 const express = require("express");
 const connectDB = require("./config/db");
-const Note = require("./models/note");
 
 // Create an express app
 const app = express();
