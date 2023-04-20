@@ -14,7 +14,7 @@ const getNoteById = async (req, res) => {
   // Find the note using that id
   const note = await Note.findById(noteId);
   // Respond with the note
-  res.json({ note: note });
+  res.status(200).json({ note });
 };
 
 const createNewNote = async (req, res) => {
