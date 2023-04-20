@@ -4,8 +4,8 @@ const getAllNotes = async (req, res) => {
   // Find the notes
   const notes = await Note.find();
 
-  // Respond with them
-  res.json({ notes: notes });
+  // Respond with them (if the key and the value match => "notes")
+  res.status(200).json({ notes });
 };
 
 const getNoteById = async (req, res) => {
