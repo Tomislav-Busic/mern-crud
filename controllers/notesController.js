@@ -59,7 +59,7 @@ const deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(noteId);
 
   // Respond with id from the note
-  res.json({ note: `Deleted note id ${noteId}` });
+  res.status(200).json({ note: `Deleted note id ${noteId}` });
 };
 
 module.exports = {
