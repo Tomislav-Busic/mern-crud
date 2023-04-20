@@ -28,7 +28,7 @@ const createNewNote = async (req, res) => {
   });
 
   // respond with the new note
-  res.status(200).json({ note });
+  res.status(201).json({ note });
 };
 
 const updateNote = async (req, res) => {
