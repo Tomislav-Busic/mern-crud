@@ -36,20 +36,19 @@ const updateNote = async (req, res) => {
   const noteId = req.params.id;
 
   // Get the data off the req body
-  const title = req.body.title;
-  const body = req.body.body;
+  const { title, body } = req.body;
 
   // Find and update the record
   await Note.findByIdAndUpdate(noteId, {
-    title: title,
-    body: body,
+    title,
+    body,
   });
 
   // Find updated note
   const updatedNote = await Note.findById(noteId);
 
   // Respond with it
-  res.json({ note: updatedNote });
+  res.status(200).json({ note: updatedNote });
 };
 
 const deleteNote = async (req, res) => {
