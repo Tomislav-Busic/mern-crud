@@ -5,6 +5,7 @@ if (process.env.NODE_ENV != "production") {
 
 // Import dependencies
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const {
   getAllNotes,
@@ -19,6 +20,7 @@ const app = express();
 
 // Configure express app
 app.use(express.json());
+app.use(cors());
 
 // Connect to database
 connectDB();
