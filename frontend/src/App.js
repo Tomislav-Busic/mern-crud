@@ -19,7 +19,14 @@ function App() {
   return (
     <div>
       <h1>Hello World!</h1>
-      {notes && notes.map((note) => <h2 key={note._id}>{note.title}</h2>)}
+      {notes &&
+        notes.map((note) => {
+          return (
+            <div key={note._id}>
+              <h2>{note.title}</h2>
+            </div>
+          );
+        })}
     </div>
   );
 }
