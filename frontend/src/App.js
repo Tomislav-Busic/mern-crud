@@ -29,6 +29,13 @@ function App() {
     }));
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    // Create note
+    await axios.post("http://localhost:3000/notes", data);
+  };
+
   return (
     <div>
       <h1>Hello World!</h1>
@@ -42,7 +49,7 @@ function App() {
         })}
       <div>
         <h2>Create note</h2>
-        <form>
+        <form onSubmit={onSubmit}>
           <input name="title" value={title} onChange={onChange} />
           <textarea name="body" value={body} onChange={onChange} />
           <button type="submit">Submit</button>
