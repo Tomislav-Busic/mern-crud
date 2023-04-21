@@ -33,7 +33,10 @@ function App() {
     e.preventDefault();
 
     // Create note
-    await axios.post("http://localhost:3000/notes", data);
+    const res = await axios.post("http://localhost:3000/notes", data);
+
+    // Update state
+    setNotes([...notes, res.data.note]);
   };
 
   return (
