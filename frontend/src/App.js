@@ -3,6 +3,12 @@ import axios from "axios";
 
 function App() {
   const [notes, setNotes] = useState(null);
+  const [data, setData] = useState({
+    title: "",
+    body: "",
+  });
+
+  const { title, body } = data;
 
   useEffect(() => {
     fetchNotes();
