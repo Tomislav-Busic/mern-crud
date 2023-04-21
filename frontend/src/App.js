@@ -37,6 +37,9 @@ function App() {
 
     // Update state
     setNotes([...notes, res.data.note]);
+
+    // Clear form state
+    setData({ title: "", body: "" });
   };
 
   return (
