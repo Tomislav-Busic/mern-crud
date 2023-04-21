@@ -27,6 +27,14 @@ function App() {
             </div>
           );
         })}
+      <div>
+        <h2>Create note</h2>
+        <form>
+          <input name="title" />
+          <textarea name="body" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
