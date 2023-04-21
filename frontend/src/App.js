@@ -44,6 +44,8 @@ function App() {
 
   const deleteNote = () => {};
 
+  const updateNote = () => {};
+
   return (
     <div>
       <h1>Hello World!</h1>
