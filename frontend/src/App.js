@@ -22,6 +22,13 @@ function App() {
     console.log(res);
   };
 
+  const onChange = (e) => {
+    setData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <div>
       <h1>Hello World!</h1>
@@ -36,8 +43,8 @@ function App() {
       <div>
         <h2>Create note</h2>
         <form>
-          <input name="title" />
-          <textarea name="body" />
+          <input name="title" value={title} onChange={onChange} />
+          <textarea name="body" value={body} onChange={onChange} />
           <button type="submit">Submit</button>
         </form>
       </div>
