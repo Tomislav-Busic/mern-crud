@@ -42,6 +42,8 @@ function App() {
     setData({ title: "", body: "" });
   };
 
+  const deleteNote = () => {};
+
   return (
     <div>
       <h1>Hello World!</h1>
