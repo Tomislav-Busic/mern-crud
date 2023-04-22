@@ -27,6 +27,7 @@ function App() {
     console.log(res);
   };
 
+  // CREATE
   const onChange = (e) => {
     setData((prevState) => ({
       ...prevState,
@@ -47,6 +48,7 @@ function App() {
     setData({ title: "", body: "" });
   };
 
+  // DELETE
   const deleteNote = async (id) => {
     // Delete note
     const res = await axios.delete(`http://localhost:3000/notes/${id}`);
@@ -58,11 +60,19 @@ function App() {
     setNotes(newNotes);
   };
 
+  // UPDATE
   const onSubmitUpdate = (e) => {
     e.preventDefault();
   };
- 
-  const updateNote = () => {};
+
+  const onChangeUpdate = (e) => {
+    const { name, value } = e.target;
+
+    setUpdateForm({
+      ...updateForm,
+      [name]: value,
+    });
+  };
 
   return (
     <div>
@@ -106,8 +116,16 @@ function App() {
             gap: "1rem",
           }}
         >
-          <input name="title" value={title} onChange={onChange} />
-          <textarea name="body" value={body} onChange={onChange} />
+          <input
+            name="title"
+            value={updateForm.title}
+            onChange={onChangeUpdate}
+          />
+          <textarea
+            name="body"
+            value={updateForm.body}
+            onChange={onChangeUpdate}
+          />
           <button type="submit">Submit</button>
         </form>
       </div>
