@@ -70,8 +70,6 @@ function App() {
       body,
     });
 
-    setNotes([...notes, res.data.note]);
-
     // Update state
     const newNotes = [...notes];
     const noteIndex = notes.findIndex((note) => {
