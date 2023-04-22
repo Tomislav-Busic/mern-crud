@@ -63,6 +63,7 @@ function App() {
           return (
             <div key={note._id}>
               <h2>{note.title}</h2>
+              <p>Body: {note.body}</p>
               <button onClick={() => deleteNote(note._id)}>
                 Delete {note.title}
               </button>
@@ -70,8 +71,16 @@ function App() {
           );
         })}
       <div>
-        <h2>Create note</h2>
-        <form onSubmit={onSubmit}>
+        <h2 style={{ textAlign: "center" }}>Create note</h2>
+        <form
+          onSubmit={onSubmit}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
           <input name="title" value={title} onChange={onChange} />
           <textarea name="body" value={body} onChange={onChange} />
           <button type="submit">Submit</button>
