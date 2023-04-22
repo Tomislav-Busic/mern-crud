@@ -29,7 +29,7 @@ function App() {
     }));
   };
 
-  const onSubmit = async (e) => {
+  const onSubmitCreate = async (e) => {
     e.preventDefault();
 
     // Create note
@@ -72,6 +72,22 @@ function App() {
         })}
       <div>
         <h2 style={{ textAlign: "center" }}>Create note</h2>
+        <form
+          onSubmit={onSubmitCreate}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <input name="title" value={title} onChange={onChange} />
+          <textarea name="body" value={body} onChange={onChange} />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div>
+        <h2 style={{ textAlign: "center" }}>Update note</h2>
         <form
           onSubmit={onSubmit}
           style={{
