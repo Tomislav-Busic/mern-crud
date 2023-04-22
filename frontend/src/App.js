@@ -61,8 +61,15 @@ function App() {
   };
 
   // UPDATE
-  const onSubmitUpdate = (e) => {
+  const onSubmitUpdate = async (e) => {
     e.preventDefault();
+
+    const res = await axios.put(
+      `http://localhost:3000/notes/${updateForm._id}`,
+      { title: updateForm.title, body: updateForm.body }
+    );
+
+    console.log(res);
   };
 
   const onChangeUpdate = (e) => {
