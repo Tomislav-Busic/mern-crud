@@ -54,6 +54,13 @@ function App() {
           return (
             <div key={note._id}>
               <h2>{note.title}</h2>
+              <button
+                onClick={() => {
+                  deleteNote(note._id);
+                }}
+              >
+                Delete {note.title}
+              </button>
             </div>
           );
         })}
