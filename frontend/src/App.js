@@ -7,6 +7,11 @@ function App() {
     title: "",
     body: "",
   });
+  const [updateForm, setUpdateForm] = {
+    _id: null,
+    title: "",
+    body: "",
+  };
 
   const { title, body } = data;
 
