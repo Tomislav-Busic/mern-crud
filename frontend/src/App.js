@@ -44,7 +44,7 @@ function App() {
 
   const deleteNote = async (id) => {
     // Delete note
-    const res = await axios.delete(`http://localhost:3000/:${id}`);
+    const res = await axios.delete(`http://localhost:3000/notes/:${id}`);
 
     setNotes([...notes, res.data.note]);
   };
