@@ -7,11 +7,11 @@ function App() {
     title: "",
     body: "",
   });
-  const [updateForm, setUpdateForm] = {
+  const [updateForm, setUpdateForm] = useState({
     _id: null,
     title: "",
     body: "",
-  };
+  });
 
   const { title, body } = data;
 
