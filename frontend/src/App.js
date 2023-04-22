@@ -46,7 +46,13 @@ function App() {
     // Delete note
     const res = await axios.delete(`http://localhost:3000/notes/${id}`);
 
-    setNotes([...notes, res.data.note]);
+    console.log(res);
+
+    const newNotes = [notes].filter((note) => {
+      return note._id !== id;
+    });
+
+    setNotes(newNotes);
   };
 
   const updateNote = () => {};
