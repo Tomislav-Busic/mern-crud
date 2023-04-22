@@ -48,9 +48,7 @@ function App() {
 
     console.log(res);
 
-    const newNotes = [notes].filter((note) => {
-      return note._id !== id;
-    });
+    const newNotes = notes.filter((note) => note._id !== id);
 
     setNotes(newNotes);
   };
@@ -65,11 +63,7 @@ function App() {
           return (
             <div key={note._id}>
               <h2>{note.title}</h2>
-              <button
-                onClick={() => {
-                  deleteNote(note._id);
-                }}
-              >
+              <button onClick={() => deleteNote(note._id)}>
                 Delete {note.title}
               </button>
             </div>
