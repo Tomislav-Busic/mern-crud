@@ -42,7 +42,12 @@ function App() {
     setData({ title: "", body: "" });
   };
 
-  const deleteNote = () => {};
+  const deleteNote = async (id) => {
+    // Delete note
+    const res = await axios.delete(`http://localhost:3000/:${id}`);
+
+    setNotes([...notes, res.data.note]);
+  };
 
   const updateNote = () => {};
 
