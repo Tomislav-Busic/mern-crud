@@ -73,12 +73,18 @@ function App() {
     // Update state
     const newNotes = [...notes];
     const noteIndex = notes.findIndex((note) => {
-      return (note._id = updateForm._id);
+      return note._id === updateForm._id;
     });
-
     newNotes[noteIndex] = res.data.note;
 
     setNotes(newNotes);
+
+    // Clear state
+    setUpdateForm({
+      _id: null,
+      title: "",
+      body: "",
+    });
   };
 
   const onChangeUpdate = (e) => {
