@@ -63,13 +63,14 @@ function App() {
   // UPDATE
   const onSubmitUpdate = async (e) => {
     e.preventDefault();
+    const { _id, title, body } = updateForm;
 
-    const res = await axios.put(
-      `http://localhost:3000/notes/${updateForm._id}`,
-      { title: updateForm.title, body: updateForm.body }
-    );
+    const res = await axios.put(`http://localhost:3000/notes/${_id}`, {
+      title,
+      body,
+    });
 
-    console.log(res);
+    setNotes([...notes, res.data.note]);
   };
 
   const onChangeUpdate = (e) => {
