@@ -53,6 +53,10 @@ function App() {
     setNotes(newNotes);
   };
 
+  const onSubmitUpdate = (e) => {
+    e.preventDefault();
+  };
+ 
   const updateNote = () => {};
 
   return (
@@ -89,7 +93,7 @@ function App() {
       <div>
         <h2 style={{ textAlign: "center" }}>Update note</h2>
         <form
-          onSubmit={onSubmit}
+          onSubmit={onSubmitUpdate}
           style={{
             display: "flex",
             alignItems: "center",
