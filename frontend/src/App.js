@@ -74,6 +74,14 @@ function App() {
     });
   };
 
+  const toggleUpdate = (note) => {
+    setUpdateForm({
+      _id: note._id,
+      title: note.title,
+      body: note.body,
+    });
+  };
+
   return (
     <div>
       <h1>Hello World!</h1>
@@ -86,6 +94,7 @@ function App() {
               <button onClick={() => deleteNote(note._id)}>
                 Delete {note.title}
               </button>
+              <button onClick={() => toggleUpdate(note)}>Update</button>
             </div>
           );
         })}
