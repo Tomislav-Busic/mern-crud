@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const noteStore = create((set) => ({
+export const noteStore = create((set) => ({
   notes: null,
 
   fetchNotes: async () => {
@@ -11,5 +11,3 @@ const noteStore = create((set) => ({
     set({ notes: res.data.notes });
   },
 }));
-
-export default noteStore;
