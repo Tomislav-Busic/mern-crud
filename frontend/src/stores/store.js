@@ -1,7 +1,15 @@
 import { create } from "zustand";
+import axios from "axios";
 
-const useBearStore = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
+const noteStore = create((set) => ({
+  notes: null,
+
+  fetchNotes: async () => {
+    // Fetch the notes
+    const res = await axios.get("http://localhost:3000/notes");
+    // Set to state
+    set(res.data.notes);
+  },
 }));
+
+export default noteStore;
