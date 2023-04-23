@@ -15,20 +15,9 @@ function App() {
     body: "",
   });
 
-  const { title, body } = data;
-
   useEffect(() => {
     store.fetchNotes();
   }, []);
-
-
-  // CREATE
-  const onChange = (e) => {
-    setData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
 
   const onSubmitCreate = async (e) => {
     e.preventDefault();
