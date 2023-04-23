@@ -8,7 +8,7 @@ const noteStore = create((set) => ({
     // Fetch the notes
     const res = await axios.get("http://localhost:3000/notes");
     // Set to state
-    set(res.data.notes);
+    set({ notes: res.data.notes });
   },
 }));
 
