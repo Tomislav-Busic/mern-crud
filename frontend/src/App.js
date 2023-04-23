@@ -126,8 +126,16 @@ function App() {
             gap: "1rem",
           }}
         >
-          <input name="title" value={title} onChange={onChange} />
-          <textarea name="body" value={body} onChange={onChange} />
+          <input
+            name="title"
+            value={store.createForm.title}
+            onChange={store.updateCreateFormField}
+          />
+          <textarea
+            name="body"
+            value={store.createForm.body}
+            onChange={store.updateCreateFormField}
+          />
           <button type="submit">Submit</button>
         </form>
       </div>
