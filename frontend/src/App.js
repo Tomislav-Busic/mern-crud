@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { noteStore } from "./stores/store";
 
 function App() {
+  const store = noteStore();
   const [notes, setNotes] = useState(null);
   const [data, setData] = useState({
     title: "",
@@ -16,7 +18,7 @@ function App() {
   const { title, body } = data;
 
   useEffect(() => {
-    fetchNotes();
+    store.fetchNotes();
   }, []);
 
   const fetchNotes = async () => {
@@ -107,8 +109,8 @@ function App() {
   return (
     <div>
       <h1>Hello World!</h1>
-      {notes &&
-        notes.map((note) => {
+      {store.notes &&
+        store.notes.map((note) => {
           return (
             <div key={note._id}>
               <h2>{note.title}</h2>
