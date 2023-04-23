@@ -21,13 +21,6 @@ function App() {
     store.fetchNotes();
   }, []);
 
-  const fetchNotes = async () => {
-    // Fetch the notes
-    const res = await axios.get("http://localhost:3000/notes");
-    // Set to state
-    setNotes(res.data.notes);
-    console.log(res);
-  };
 
   // CREATE
   const onChange = (e) => {
