@@ -1,6 +1,11 @@
 import React from "react";
+import { noteStore } from "../stores/store";
 
-export const Note = (note, store) => {
+export const Note = (note) => {
+  const store = noteStore((store) => {
+    return { deleteNote: store.deleteNote, toggleUpdate: store.toggleUpdate };
+  });
+
   return (
     <div key={note._id}>
       <h2>{note.title}</h2>

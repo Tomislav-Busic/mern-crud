@@ -9,7 +9,7 @@ export const Notes = () => {
       <h1>Hello World!</h1>
       {store.notes &&
         store.notes.map((note) => {
-          return <Note note={note} store={store} />;
+          return <Note key={note._id} note={note} />;
         })}
     </div>
   );
