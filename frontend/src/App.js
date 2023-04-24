@@ -23,7 +23,10 @@ function App() {
     e.preventDefault();
 
     // Create note
-    const res = await axios.post("http://localhost:3000/notes", data);
+    const res = await axios.post(
+      "http://localhost:3000/notes",
+      store.createForm
+    );
 
     // Update state
     setNotes([...notes, res.data.note]);
