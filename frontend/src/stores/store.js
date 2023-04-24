@@ -72,4 +72,30 @@ export const noteStore = create((set) => ({
       updateForm: { _id, title, body },
     });
   },
+  onSubmitUpdate: async (e) => {
+    e.preventDefault();
+    const { _id, title, body } = noteStore.getState().updateForm;
+
+    const res = await axios.put(`http://localhost:3000/notes/${_id}`, {
+      title,
+      body,
+    });
+
+    // Update state
+    const { notes, updateForm } = noteStore.getState();
+    const newNotes = [...notes];
+    const noteIndex = notes.findIndex((note) => {
+      return note._id === updateForm._id;
+    });
+    newNotes[noteIndex] = res.data.note;
+
+    set({
+      notes: newNotes,
+      updateForm: {
+        _id: null,
+        title: "",
+        body: "",
+      },
+    });
+  },
 }));
