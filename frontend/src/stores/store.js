@@ -66,4 +66,11 @@ export const noteStore = create((set) => ({
       },
     }));
   },
+  toggleUpdate: (note) => {
+    set({
+      _id: note._id,
+      title: note.title,
+      body: note.body,
+    });
+  },
 }));
