@@ -4,92 +4,10 @@ import { noteStore } from "./stores/store";
 
 function App() {
   const store = noteStore();
-  const [notes, setNotes] = useState(null);
-  const [data, setData] = useState({
-    title: "",
-    body: "",
-  });
-  const [updateForm, setUpdateForm] = useState({
-    _id: null,
-    title: "",
-    body: "",
-  });
 
   useEffect(() => {
     store.fetchNotes();
   }, []);
-
-  const onSubmitCreate = async (e) => {
-    e.preventDefault();
-
-    // Create note
-    const res = await axios.post(
-      "http://localhost:3000/notes",
-      store.createForm
-    );
-
-    // Update state
-    setNotes([...notes, res.data.note]);
-
-    // Clear form state
-    setData({ title: "", body: "" });
-  };
-
-  // DELETE
-  const deleteNote = async (id) => {
-    // Delete note
-    const res = await axios.delete(`http://localhost:3000/notes/${id}`);
-
-    console.log(res);
-
-    const newNotes = notes.filter((note) => note._id !== id);
-
-    setNotes(newNotes);
-  };
-
-  // UPDATE
-  const onSubmitUpdate = async (e) => {
-    e.preventDefault();
-    const { _id, title, body } = updateForm;
-
-    const res = await axios.put(`http://localhost:3000/notes/${_id}`, {
-      title,
-      body,
-    });
-
-    // Update state
-    const newNotes = [...notes];
-    const noteIndex = notes.findIndex((note) => {
-      return note._id === updateForm._id;
-    });
-    newNotes[noteIndex] = res.data.note;
-
-    setNotes(newNotes);
-
-    // Clear state
-    setUpdateForm({
-      _id: null,
-      title: "",
-      body: "",
-    });
-  };
-
-  const onChangeUpdate = (e) => {
-    const { name, value } = e.target;
-
-    setUpdateForm({
-      ...updateForm,
-      [name]: value,
-    });
-  };
-
-  const toggleUpdate = (note) => {
-    setUpdateForm({
-      _id: note._id,
-      title: note.title,
-      body: note.body,
-    });
-  };
 
   return (
     <div>
