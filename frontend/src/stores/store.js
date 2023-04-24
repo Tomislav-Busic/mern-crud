@@ -24,4 +24,20 @@ export const noteStore = create((set) => ({
       },
     }));
   },
+  createNote: async (e) => {
+    e.preventDefault();
+
+    // Create note
+    const { createForm, notes } = noteStore.getState();
+    const res = await axios.post("http://localhost:3000/notes", createForm);
+
+    // Update state
+    set({
+      notes: [...notes, res.data.note],
+      createForm: {
+        title: "",
+        body: "",
+      },
+    });
+  },
 }));
