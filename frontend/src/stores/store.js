@@ -60,8 +60,8 @@ export const noteStore = create((set) => ({
     const { name, value } = e.target;
 
     set((state) => ({
-      createForm: {
-        ...state.createForm,
+      updateForm: {
+        ...state.updateForm,
         [name]: value,
       },
     }));
