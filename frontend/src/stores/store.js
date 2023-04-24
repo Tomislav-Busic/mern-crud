@@ -9,6 +9,12 @@ export const noteStore = create((set) => ({
     body: "",
   },
 
+  updateForm: {
+    _id: null,
+    title: "",
+    body: "",
+  },
+
   fetchNotes: async () => {
     // Fetch the notes
     const res = await axios.get("http://localhost:3000/notes");
@@ -49,5 +55,15 @@ export const noteStore = create((set) => ({
     const newNotes = notes.filter((note) => note._id !== id);
 
     set({ notes: newNotes });
+  },
+  onChangeUpdate: (e) => {
+    const { name, value } = e.target;
+
+    set((state) => ({
+      createForm: {
+        ...state.createForm,
+        [name]: value,
+      },
+    }));
   },
 }));
