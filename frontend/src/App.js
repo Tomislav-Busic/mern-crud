@@ -110,7 +110,7 @@ function App() {
       <div>
         <h2 style={{ textAlign: "center" }}>Create note</h2>
         <form
-          onSubmit={onSubmitCreate}
+          onSubmit={store.createNote}
           style={{
             display: "flex",
             alignItems: "center",
