@@ -144,12 +144,12 @@ function App() {
         >
           <input
             name="title"
-            value={updateForm.title}
+            value={store.updateForm.title}
             onChange={store.onChangeUpdate}
           />
           <textarea
             name="body"
-            value={updateForm.body}
+            value={store.updateForm.body}
             onChange={store.onChangeUpdate}
           />
           <button type="submit">Submit</button>
