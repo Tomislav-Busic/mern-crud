@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Note = (note) => {
+export const Note = (note, store) => {
   return (
     <div key={note._id}>
       <h2>{note.title}</h2>
