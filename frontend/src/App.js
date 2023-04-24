@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { noteStore } from "./stores/store";
+import { Notes } from "./components/Notes";
 
 function App() {
   const store = noteStore();
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <div>
+      <Notes />
       <div>
         <h2 style={{ textAlign: "center" }}>Create note</h2>
         <form
