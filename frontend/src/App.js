@@ -134,7 +134,7 @@ function App() {
       <div>
         <h2 style={{ textAlign: "center" }}>Update note</h2>
         <form
-          onSubmit={onSubmitUpdate}
+          onSubmit={store.onSubmitUpdate}
           style={{
             display: "flex",
             alignItems: "center",
