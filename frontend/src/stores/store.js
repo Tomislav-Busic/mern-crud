@@ -82,10 +82,10 @@ export const noteStore = create((set) => ({
     });
 
     // Update state
-    const { notes, updateForm } = noteStore.getState();
+    const { notes } = noteStore.getState();
     const newNotes = [...notes];
     const noteIndex = notes.findIndex((note) => {
-      return note._id === updateForm._id;
+      return note._id === _id;
     });
     newNotes[noteIndex] = res.data.note;
 
