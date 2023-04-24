@@ -103,7 +103,7 @@ function App() {
               <button onClick={() => store.deleteNote(note._id)}>
                 Delete {note.title}
               </button>
-              <button onClick={() => toggleUpdate(note)}>Update</button>
+              <button onClick={() => store.toggleUpdate(note)}>Update</button>
             </div>
           );
         })}
@@ -145,12 +145,12 @@ function App() {
           <input
             name="title"
             value={updateForm.title}
-            onChange={onChangeUpdate}
+            onChange={store.onChangeUpdate}
           />
           <textarea
             name="body"
             value={updateForm.body}
-            onChange={onChangeUpdate}
+            onChange={store.onChangeUpdate}
           />
           <button type="submit">Submit</button>
         </form>
