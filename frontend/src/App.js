@@ -100,7 +100,7 @@ function App() {
             <div key={note._id}>
               <h2>{note.title}</h2>
               <p>Body: {note.body}</p>
-              <button onClick={() => deleteNote(note._id)}>
+              <button onClick={() => store.deleteNote(note._id)}>
                 Delete {note.title}
               </button>
               <button onClick={() => toggleUpdate(note)}>Update</button>
