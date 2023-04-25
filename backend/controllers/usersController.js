@@ -21,7 +21,13 @@ const signup = async (req, res) => {
   
 };
 
-const login = (req, res) => {};
+const login = (req, res) => {
+  // Get the email and password off req body
+  // Find the user with requested email
+  // Compare send in password with found user password hash
+  // Create a jwt token
+  // Send it
+};
 
 const logout = (req, res) => {};
 
