@@ -15,8 +15,8 @@ const signup = async (req, res) => {
       // Response
       res.status(201).json({ data: req.body });
     } catch (error) {
-      res.status(400);
       console.log(error);
+      res.sendStatus(400);
     }
   
 };
