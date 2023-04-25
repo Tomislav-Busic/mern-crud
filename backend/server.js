@@ -14,6 +14,7 @@ const {
   updateNote,
   deleteNote,
 } = require("./controllers/notesController");
+const usersController = require("./controllers/usersController");
 
 // Create an express app
 const app = express();
@@ -26,15 +27,14 @@ app.use(cors());
 connectDB();
 
 // Routing
+app.post("/signup", usersController.signup);
+app.post("/login", usersController.login);
+app.get("/logout", usersController.logout);
 
 app.get("/notes", getAllNotes);
-
 app.get("/notes/:id", getNoteById);
-
 app.post("/notes", createNewNote);
-
 app.put("/notes/:id", updateNote);
-
 app.delete("/notes/:id", deleteNote);
 
 app.listen(process.env.PORT);
