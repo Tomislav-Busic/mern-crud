@@ -33,9 +33,9 @@ const login = async (req, res) => {
   const passwordMatch = await bcrypt.compare(password, user.password);
   if (!passwordMatch) return res.sendStatus(401);
 
-  // Create a jwt token
-  const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
-  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
+  // Create a jwt token (better version down)
+  /* const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT); */
 
   // Send it
   res.status(200).json({ token });
