@@ -24,9 +24,11 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
   // Get the email and password off req body
   const { email, password } = req.body;
+
   // Find the user with requested email
   const user = await User.find({ email });
   if (!user) return res.sendStatus(401);
+
   // Compare send in password with found user password hash
   const passwordMatch = bcrypt.compareSync(password, user.password);
   if (!passwordMatch) return res.sendStatus(401);
