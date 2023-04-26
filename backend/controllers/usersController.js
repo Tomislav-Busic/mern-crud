@@ -34,7 +34,8 @@ const login = async (req, res) => {
   if (!passwordMatch) return res.sendStatus(401);
 
   // Create a jwt token
-  const token = jwt.sign({ foo: "bar" }, privateKey, { algorithm: "RS256" });
+  const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
   // Send it
 };
 
