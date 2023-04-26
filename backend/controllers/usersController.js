@@ -22,31 +22,25 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  // Get the email and password off req body
   const { email, password } = req.body;
 
-  // Check for user email
+  // Find the user with requested email
   const user = await User.findOne({ email });
+  if (!user) return res.sendStatus(401);
 
-  if (user && bcrypt.compare(password, user.password)) {
-    res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
-    });
-  } else {
-    res.status(400);
-    throw new Error("Invalid credentials");
-  }
+  // Compare send in password with found user password hash
+  const passwordMatch = await bcrypt.compare(password, user.password);
+  if (!passwordMatch) return res.sendStatus(401);
+
+  // Create a jwt token
+  const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
+
+  // Send it
+  res.status(200).json({ token });
 };
 
 const logout = (req, res) => {};
-
-// Generate JWT
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.SECRET_JWT, {
-    expiresIn: "30d",
-  });
-};
 
 module.exports = { signup, login, logout };
