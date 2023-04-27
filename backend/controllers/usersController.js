@@ -40,6 +40,9 @@ const login = async (req, res) => {
    // Set the cookie
    res.cookie("Authorization", generateToken(user._id), {
      /*  expires:  new Date(exp)*/
+     httpOnly: true,
+     sameSite: "lax",
+     secure: process.env.NODE_ENV === "production",
    });
 
   // Send it
