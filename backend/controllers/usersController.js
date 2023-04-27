@@ -36,7 +36,7 @@ const login = async (req, res) => {
 
     // Create a jwt token (better version down)
     const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
-    const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
+    const token = jwt.sign({ encode: user._id, exp }, process.env.SECRET_JWT);
 
     // Set the cookie
     res.cookie("Authorization", token, {
