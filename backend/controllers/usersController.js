@@ -34,11 +34,13 @@ const login = async (req, res) => {
   if (!passwordMatch) return res.sendStatus(401);
 
   // Create a jwt token (better version down)
-  /* const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
-  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT); */
+   const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+   /*const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT); */
 
-  // Set the cookie
-  res.cookie("Authorization", generateToken(user._id), {});
+   // Set the cookie
+   res.cookie("Authorization", generateToken(user._id), {
+     /*  expires:  new Date(exp)*/
+   });
 
   // Send it
   res.status(200).json({ token });
