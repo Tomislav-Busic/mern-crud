@@ -46,7 +46,7 @@ const login = async (req, res) => {
   });
 
   // Send it
-  res.status(200).json({ token });
+  res.status(200);
 };
 
 const logout = (req, res) => {};
