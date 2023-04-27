@@ -16,6 +16,7 @@ const {
   deleteNote,
 } = require("./controllers/notesController");
 const usersController = require("./controllers/usersController");
+const requireAuth = require("./middleware/requireAuth");
 
 // Create an express app
 const app = express();
@@ -32,6 +33,7 @@ connectDB();
 app.post("/signup", usersController.signup);
 app.post("/login", usersController.login);
 app.get("/logout", usersController.logout);
+app.get("/check-auth", requireAuth, usersController.checkAuth);
 
 app.get("/notes", getAllNotes);
 app.get("/notes/:id", getNoteById);
