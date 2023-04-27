@@ -11,6 +11,7 @@ const requireAuth = async (req, res, next) => {
 
     // Find user using decoded sub
     const user = await User.findById(decoded.sub);
+    if (!user) return res.sendStatus(401);
 
     // Attach user to req
     req.user = user;
