@@ -37,6 +37,9 @@ const login = async (req, res) => {
   /* const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
   const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT); */
 
+  // Set the cookie
+  res.cookie("Authorization", generateToken(user._id), {});
+
   // Send it
   res.status(200).json({ token });
 };
