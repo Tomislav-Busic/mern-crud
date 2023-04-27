@@ -52,6 +52,7 @@ const login = async (req, res) => {
 const logout = (req, res) => {};
 
 const checkAuth = (req, res) => {
+  console.log(req.user);
   res.sendStatus(200);
 };
 
