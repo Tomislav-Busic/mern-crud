@@ -9,6 +9,8 @@ const requireAuth = async (req, res, next) => {
     // Decode the token
     const decoded = jwt.verify(token, process.env.SECRET_JWT);
 
+    // Check expiration
+
     // Find user using decoded sub
     const user = await User.findById(decoded.encode);
     if (!user) return res.sendStatus(401);
