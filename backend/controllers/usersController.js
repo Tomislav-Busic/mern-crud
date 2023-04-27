@@ -22,31 +22,36 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  // Get the email and password off req body
-  const { email, password } = req.body;
+  try {
+    // Get the email and password off req body
+    const { email, password } = req.body;
 
-  // Find the user with requested email
-  const user = await User.findOne({ email });
-  if (!user) return res.sendStatus(401);
+    // Find the user with requested email
+    const user = await User.findOne({ email });
+    if (!user) return res.sendStatus(401);
 
-  // Compare send in password with found user password hash
-  const passwordMatch = await bcrypt.compare(password, user.password);
-  if (!passwordMatch) return res.sendStatus(401);
+    // Compare send in password with found user password hash
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) return res.sendStatus(401);
 
-  // Create a jwt token (better version down)
-  const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
-  const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
+    // Create a jwt token (better version down)
+    const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+    const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET_JWT);
 
-  // Set the cookie
-  res.cookie("Authorization", token, {
-    expires: new Date(exp),
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-  });
+    // Set the cookie
+    res.cookie("Authorization", token, {
+      expires: new Date(exp),
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
 
-  // Send it
-  res.status(200);
+    // Send it
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(401);
+  }
 };
 
 const logout = (req, res) => {};
