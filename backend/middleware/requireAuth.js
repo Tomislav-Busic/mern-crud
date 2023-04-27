@@ -12,10 +12,10 @@ const requireAuth = async (req, res, next) => {
     // Find user using decoded sub
     const user = await User.findById(decoded.sub);
 
-    // Atach user to req
-    // Continue on
+    // Attach user to req
+    req.user = user;
 
-    console.log("In middleware");
+    // Continue on
     next();
   } catch (error) {
     res.sendStatus(401);
