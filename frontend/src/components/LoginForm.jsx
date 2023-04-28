@@ -5,7 +5,7 @@ export const LoginForm = () => {
   const store = authStore();
 
   return (
-    <form>
+    <form onSubmit={store.login}>
       <input
         type="email"
         name="email"
