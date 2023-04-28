@@ -9,5 +9,12 @@ export const authStore = create((set) => ({
 
   updateLoginForm: (e) => {
     const { name, value } = e.target;
+
+    set((state) => ({
+      loginForm: {
+        ...state.loginForm,
+        [name]: value,
+      },
+    }));
   },
 }));
