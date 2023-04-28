@@ -17,7 +17,7 @@ export const noteStore = create((set) => ({
 
   fetchNotes: async () => {
     // Fetch the notes
-    const res = await axios.get("http://localhost:3000/notes");
+    const res = await axios.get("/notes");
     // Set to state
     set({ notes: res.data.notes });
   },
@@ -35,7 +35,7 @@ export const noteStore = create((set) => ({
 
     // Create note
     const { createForm, notes } = noteStore.getState();
-    const res = await axios.post("http://localhost:3000/notes", createForm);
+    const res = await axios.post("/notes", createForm);
 
     // Update state
     set({
@@ -48,7 +48,7 @@ export const noteStore = create((set) => ({
   },
   deleteNote: async (id) => {
     // Delete note
-    const res = await axios.delete(`http://localhost:3000/notes/${id}`);
+    const res = await axios.delete(`/notes/${id}`);
     console.log(res.data.note);
 
     const { notes } = noteStore.getState();
@@ -76,7 +76,7 @@ export const noteStore = create((set) => ({
     e.preventDefault();
     const { _id, title, body } = noteStore.getState().updateForm;
 
-    const res = await axios.put(`http://localhost:3000/notes/${_id}`, {
+    const res = await axios.put(`/notes/${_id}`, {
       title,
       body,
     });
