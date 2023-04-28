@@ -6,10 +6,28 @@ export const Navigation = () => {
     <div>
       <ul style={{ display: "flex", gap: "1rem" }}>
         <li style={{ listStyle: "none" }}>
-          <Link to="/">Home</Link>
+          <Link
+            style={{
+              fontSize: "2rem",
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+            to="/"
+          >
+            Home
+          </Link>
         </li>
         <li style={{ listStyle: "none" }}>
-          <Link to="/login">Login</Link>
+          <Link
+            style={{
+              fontSize: "2rem",
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+            to="/login"
+          >
+            Login
+          </Link>
         </li>
       </ul>
     </div>
