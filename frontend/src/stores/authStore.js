@@ -21,11 +21,15 @@ export const authStore = create((set) => ({
 
     console.log(loginForm);
   },
-  login: (e) => {
+  login: async (e) => {
     e.preventDefault();
 
     const { loginForm } = authStore.getState();
 
-    axios.post("/login", loginForm, { withCredentials: true });
+    const res = await axios.post("/login", loginForm, {
+      withCredentials: true,
+    });
+
+    console.log(res);
   },
 }));
