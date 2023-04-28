@@ -34,4 +34,12 @@ export const authStore = create((set) => ({
 
     console.log(res);
   },
+  checkAuth: async () => {
+    try {
+      await axios.get("/check-auth");
+      set({ loggedIn: true });
+    } catch (error) {
+      set({ loggedIn: false });
+    }
+  },
 }));
