@@ -26,6 +26,6 @@ export const authStore = create((set) => ({
 
     const { loginForm } = authStore.getState();
 
-    axios.post("/login", loginForm);
+    axios.post("/login", loginForm, { withCredentials: true });
   },
 }));
