@@ -2,7 +2,7 @@ const Note = require("../models/note");
 
 const getAllNotes = async (req, res) => {
   // Find the notes
-  const notes = await Note.find();
+  const notes = await Note.find({ user: req.user._id });
 
   // Respond with them (if the key and the value match => "notes")
   res.status(200).json({ notes });
