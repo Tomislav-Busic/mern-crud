@@ -11,7 +11,6 @@ export const LoginForm = () => {
 
     await store.login();
 
-    //Navigate
     navigate("/");
   };
 
