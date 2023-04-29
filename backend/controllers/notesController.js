@@ -25,6 +25,7 @@ const createNewNote = async (req, res) => {
   const note = await Note.create({
     title,
     body,
+    user: req.user._id,
   });
 
   // respond with the new note
