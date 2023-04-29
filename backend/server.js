@@ -35,10 +35,10 @@ app.post("/login", usersController.login);
 app.get("/logout", usersController.logout);
 app.get("/check-auth", requireAuth, usersController.checkAuth);
 
-app.get("/notes", getAllNotes);
-app.get("/notes/:id", getNoteById);
-app.post("/notes", createNewNote);
-app.put("/notes/:id", updateNote);
-app.delete("/notes/:id", deleteNote);
+app.get("/notes", requireAuth, getAllNotes);
+app.get("/notes/:id", requireAuth, getNoteById);
+app.post("/notes", requireAuth, createNewNote);
+app.put("/notes/:id", requireAuth, updateNote);
+app.delete("/notes/:id", requireAuth, deleteNote);
 
 app.listen(process.env.PORT);
