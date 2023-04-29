@@ -66,6 +66,13 @@ export const authStore = create((set) => ({
 
     set({ loggedIn: true });
 
+    set({
+      signupForm: {
+        email: "",
+        password: "",
+      },
+    });
+
     console.log(res);
   },
 }));
