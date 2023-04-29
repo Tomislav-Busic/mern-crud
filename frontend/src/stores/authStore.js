@@ -35,6 +35,13 @@ export const authStore = create((set) => ({
 
     set({ loggedIn: true });
 
+    set({
+      loginForm: {
+        email: "",
+        password: "",
+      },
+    });
+
     console.log(res);
   },
   checkAuth: async () => {
