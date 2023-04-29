@@ -60,7 +60,7 @@ const deleteNote = async (req, res) => {
   const noteId = req.params.id;
 
   // Delete the record
-  await Note.findByIdAndDelete(noteId);
+  await Note.deleteOne({ _id: noteId, user: req.user._id });
 
   // Respond with id from the note
   res.status(200).json({ note: `Deleted note id ${noteId}` });
