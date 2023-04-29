@@ -54,7 +54,15 @@ const login = async (req, res) => {
   }
 };
 
-const logout = (req, res) => {};
+const logout = (req, res) => {
+  try {
+    res.cookie("Authorization", "", { expires: new Date() });
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(400);
+  }
+};
 
 const checkAuth = (req, res) => {
   console.log(req.user);
