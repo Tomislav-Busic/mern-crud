@@ -40,7 +40,8 @@ export const Navigation = () => {
           >
             Signup
           </Link>
-          <li style={{ listStyle: "none" }}>
+        </li>
+        <li style={{ listStyle: "none" }}>
           <Link
             style={{
               fontSize: "2rem",
