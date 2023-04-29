@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    notes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Notes" }],
+    notes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Note" }],
   },
   {
     timestamps: true,
