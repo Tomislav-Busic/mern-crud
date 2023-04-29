@@ -85,5 +85,19 @@ export const authStore = create((set) => ({
   logout: async () => {
     await axios.get("/logout");
     set({ loggedIn: false });
+
+    set({
+      signupForm: {
+        email: "",
+        password: "",
+      },
+    });
+
+    set({
+      loginForm: {
+        email: "",
+        password: "",
+      },
+    });
   },
 }));
