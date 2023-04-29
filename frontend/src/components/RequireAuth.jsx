@@ -9,8 +9,10 @@ export const RequireAuth = (props) => {
       store.checkAuth();
     }
   }, []);
+
   if (!store.loggedIn) {
     return <h1>Please login</h1>;
   }
+
   return <div>{props.children}</div>;
 };
