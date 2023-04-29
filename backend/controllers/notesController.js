@@ -12,7 +12,7 @@ const getNoteById = async (req, res) => {
   // Get id off the url
   const noteId = req.params.id;
   // Find the note using that id
-  const note = await Note.findById(noteId);
+  const note = await Note.findOne({ _id: noteId, user: req.user._id });
   // Respond with the note
   res.status(200).json({ note });
 };
