@@ -40,10 +40,13 @@ const updateNote = async (req, res) => {
   const { title, body } = req.body;
 
   // Find and update the record
-  await Note.findByIdAndUpdate(noteId, {
-    title,
-    body,
-  });
+  await Note.findOneAndUpdate(
+    { _id: noteId, user: req.user._id },
+    {
+      title,
+      body,
+    }
+  );
 
   // Find updated note
   const updatedNote = await Note.findById(noteId);
