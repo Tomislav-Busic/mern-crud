@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    notes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Notes" }],
   },
   {
     timestamps: true,
