@@ -59,4 +59,13 @@ export const authStore = create((set) => ({
 
     console.log(signupForm); */
   },
+  signup: async () => {
+    const { signupForm } = authStore.getState();
+
+    const res = await axios.post("/signup", signupForm);
+
+    set({ loggedIn: true });
+
+    console.log(res);
+  },
 }));
