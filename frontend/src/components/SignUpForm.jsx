@@ -9,7 +9,7 @@ export const SignupForm = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    store.signup();
+    await store.signup();
 
     navigate("/");
   };
