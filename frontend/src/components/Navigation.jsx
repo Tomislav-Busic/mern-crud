@@ -29,6 +29,18 @@ export const Navigation = () => {
             Login
           </Link>
         </li>
+        <li style={{ listStyle: "none" }}>
+          <Link
+            style={{
+              fontSize: "2rem",
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+            to="/signup"
+          >
+            Signup
+          </Link>
+        </li>
       </ul>
     </div>
   );
