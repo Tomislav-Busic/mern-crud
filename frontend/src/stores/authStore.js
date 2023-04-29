@@ -9,6 +9,11 @@ export const authStore = create((set) => ({
     password: "",
   },
 
+  signupForm: {
+    email: "",
+    password: "",
+  },
+
   updateLoginForm: (e) => {
     const { name, value } = e.target;
 
@@ -39,5 +44,19 @@ export const authStore = create((set) => ({
     } catch (error) {
       set({ loggedIn: false });
     }
+  },
+  updateSignupForm: (e) => {
+    const { name, value } = e.target;
+
+    set((state) => ({
+      signupForm: {
+        ...state.signupForm,
+        [name]: value,
+      },
+    }));
+
+    const { signupForm } = authStore.getState();
+
+    console.log(signupForm);
   },
 }));
