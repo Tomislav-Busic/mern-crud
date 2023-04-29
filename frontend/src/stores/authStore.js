@@ -55,8 +55,8 @@ export const authStore = create((set) => ({
       },
     }));
 
-    const { signupForm } = authStore.getState();
+    /* const { signupForm } = authStore.getState();
 
-    console.log(signupForm);
+    console.log(signupForm); */
   },
 }));
